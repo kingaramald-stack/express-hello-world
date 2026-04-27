@@ -1,7 +1,11 @@
 import express from "express";
 import Stripe from "stripe";
+import cors from "cors";
 
 const app = express();
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
